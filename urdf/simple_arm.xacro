@@ -9,12 +9,16 @@
 
   <xacro:property name="link1_length" value=".2" />
   <xacro:property name="link2_length" value=".2" />
+  <xacro:property name="end_effector_length" value=".05" />
+
 
   <link name="link1" />
   <link name="link2" />
   <link name="link3" />
   <link name="link4" />
   <link name="link5" />
+  <link name="link6" />
+  <link name="link7" />
 
   <joint name="joint1" type="continuous">
     <parent link="link1"/>
@@ -38,6 +42,18 @@
     <parent link="link4"/>
     <child link="link5"/>
     <origin xyz="0 ${link1_length} 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="joint5" type="continuous">
+    <parent link="link5"/>
+    <child link="link6"/>
+    <origin xyz="0 ${xl320_width} 0" rpy="0 0 ${pi/2}" />
+  </joint>
+
+  <joint name="joint6" type="fixed">
+    <parent link="link6"/>
+    <child link="link7"/>
+    <origin xyz="${end_effector_length} 0 0" rpy="0 0 0" />
   </joint>
 
 </robot>
