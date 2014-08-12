@@ -1,4 +1,15 @@
-<robot name="test_robot">
+<?xml version="1.0"?>
+<robot xmlns:xacro="oarkit" name="test_robot">
+
+  <xacro:property name="pi" value="3.1415926535897931" />
+
+  <xacro:property name="xl320_height" value=".024" />
+  <xacro:property name="xl320_length" value=".036" />
+  <xacro:property name="xl320_width" value=".027" />
+
+  <xacro:property name="link1_length" value=".2" />
+  <xacro:property name="link2_length" value=".2" />
+
   <link name="link1" />
   <link name="link2" />
   <link name="link3" />
@@ -8,11 +19,13 @@
   <joint name="joint1" type="continuous">
     <parent link="link1"/>
     <child link="link2"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
   <joint name="joint2" type="continuous">
     <parent link="link2"/>
     <child link="link3"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
   </joint>
 
   <joint name="joint3" type="continuous">
